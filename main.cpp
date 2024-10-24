@@ -113,19 +113,21 @@ void delete_goat(list<Goat> &trip) {
         return;
     }
 
-    display_trip(trip);
-    cout << "Select the number of the goat to delete: ";
-    int index = select_goat(trip);
+     display_trip(trip);
+    cout << "Select the name of the goat to delete: ";
+    string name;
+    cin.ignore();
+    getline(cin, name); // Use getline to get entire line including spaces
 
-    if (index < 0) {
-        cout << "Invalid selection!" << endl;
-        return;
+    for (auto it = trip.begin(); it != trip.end(); ++it) {
+        if (it->get_name() == name) { // Find goat by name
+            trip.erase(it);
+            cout << "Goat deleted!" << endl;
+            return;
+        }
     }
-
-    auto it = trip.begin();
-    advance(it, index);
-    trip.erase(it);
-    cout << "Goat deleted!" << endl;
+    
+    cout << "No goat found with the name: " << name << endl;
 }
 
 int select_goat(const set<Goat> &trip) {
