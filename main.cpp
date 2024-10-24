@@ -51,7 +51,7 @@ int main() {
     }
     fin1.close();
 
-    list<Goat> trip; // List to manage goats
+    set<Goat> trip; // Changed from list to set to manage goats
     do {
         int choice = main_menu();
         switch (choice) {
