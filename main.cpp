@@ -20,6 +20,7 @@ void add_goat(set<Goat> &trip, string names[], string colors[]);
 void display_trip(const set<Goat> &trip);
 int main_menu();
 
+// main method
 int main() {
     srand(static_cast<unsigned>(time(0)));
     bool again = true; 
