@@ -128,12 +128,13 @@ void delete_goat(list<Goat> &trip) {
     cout << "Goat deleted!" << endl;
 }
 
-int select_goat(list<Goat> &trip) {
-    int index = 0;
+int select_goat(const set<Goat> &trip) {
     cout << "Select a goat:" << endl;
-    for (auto it = trip.begin(); it != trip.end(); ++it) {
-        cout << "[" << ++index << "] " << *it << endl;
+    int index = 0;
+    for (const auto &goat : trip) {
+        cout << "[" << ++index << "] " << goat << endl;
     }
+    
     int choice;
     cin >> choice;
 
@@ -141,7 +142,7 @@ int select_goat(list<Goat> &trip) {
     return choice - 1; // Convert to zero-based index
 }
 
-void display_trip(list<Goat> trip) {
+void display_trip(const set<Goat> &trip) {
     if (trip.empty()) {
         cout << "No goats in trip!" << endl;
         return;
