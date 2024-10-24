@@ -14,10 +14,10 @@ using namespace std;
 
 const int SZ_NAMES = 200, SZ_COLORS = 25, MAX_AGE = 20;
 
-int select_goat(list<Goat> &trip);
-void delete_goat(list<Goat> &trip);
-void add_goat(list<Goat> &trip, string names [], string colors []);
-void display_trip(list<Goat> &trip);
+int select_goat(const set<Goat> &trip);
+void delete_goat(set<Goat> &trip);
+void add_goat(set<Goat> &trip, string names[], string colors[]);
+void display_trip(const set<Goat> &trip);
 int main_menu();
 
 int main() {
@@ -111,13 +111,13 @@ void add_goat(set<Goat> &trip, string names[], string colors[]) {
     }
 }
 
-void delete_goat(list<Goat> &trip) {
+void delete_goat(set<Goat> &trip) {
     if (trip.empty()) {
         cout << "No goats to delete!" << endl;
         return;
     }
-
-     display_trip(trip);
+    
+    display_trip(trip);
     cout << "Select the name of the goat to delete: ";
     string name;
     cin.ignore();
@@ -132,20 +132,6 @@ void delete_goat(list<Goat> &trip) {
     }
     
     cout << "No goat found with the name: " << name << endl;
-}
-
-int select_goat(const set<Goat> &trip) {
-    cout << "Select a goat:" << endl;
-    int index = 0;
-    for (const auto &goat : trip) {
-        cout << "[" << ++index << "] " << goat << endl;
-    }
-    
-    int choice;
-    cin >> choice;
-
-    if (choice < 1 || choice > index) return -1; // Return -1 for invalid index
-    return choice - 1; // Convert to zero-based index
 }
 
 void display_trip(const set<Goat> &trip) {
