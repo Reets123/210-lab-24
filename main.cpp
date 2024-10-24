@@ -1,4 +1,4 @@
-// Lab 23: Goat Manager 3001
+// Lab 24: GM3K2 
 // COMSC-210 - Ibrahim Alatig 
 
 #include <iostream>
