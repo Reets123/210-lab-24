@@ -17,7 +17,7 @@ const int SZ_NAMES = 200, SZ_COLORS = 25, MAX_AGE = 20;
 int select_goat(list<Goat> &trip);
 void delete_goat(list<Goat> &trip);
 void add_goat(list<Goat> &trip, string names [], string colors []);
-void display_trip(list<Goat> trip);
+void display_trip(list<Goat> &trip);
 int main_menu();
 
 int main() {
