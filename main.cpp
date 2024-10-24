@@ -97,14 +97,18 @@ int main_menu() {
     return choice;
 }
 
-void add_goat(list<Goat> &trip, string names[], string colors[]) {
+void add_goat(set<Goat> &trip, string names[], string colors[]) {
     string name = names[rand() % SZ_NAMES];
     string color = colors[rand() % SZ_COLORS];
     int age = rand() % (MAX_AGE + 1);
 
     Goat newGoat(name, age, color);
-    trip.push_back(newGoat);
-    cout << "Added goat: " << newGoat << endl;
+    auto result = trip.insert(newGoat); // Try to insert and check if it was successful
+    if (result.second) { // Insert was successful
+        cout << "Added goat: " << newGoat << endl;
+    } else {
+        cout << "Goat already exists and was not added: " << newGoat << endl;
+    }
 }
 
 void delete_goat(list<Goat> &trip) {
