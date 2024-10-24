@@ -7,6 +7,7 @@
 #include <list>
 #include <limits>
 #include <cstdlib>
+#include <set>
 #include "Goat.h"
 
 using namespace std;
